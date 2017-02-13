@@ -5,23 +5,24 @@ FROM ubuntu:16.10
 #install essential modules and dependency
 RUN apt-get update && apt-get -y install \
     git \
-    python3.6 \
     wget \
     vim \
     curl \
  && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get -y install python3-pip
+#install python3.6
+RUN apt-get update && apt-get -y install python3.6 && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /home/
+#create working directory to manage applicaion
+WORKDIR /home/runtime
+
+#pip setting with get-pip.oy
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python3.6 get-pip.py
+RUN rm get-pip.py
+
+#install flask
 RUN pip3 install flask
-#upgrde pip and then install flask
-#RUN pip3 install --upgrade pip && pip3 install flask
 
-#create directory to install and manage flask application
-#RUN mkdir /home/runtime
-#WORKDIR /home/runtime
-
-#COPY flask_app flask_app
+#deploy application
+COPY flask_app flask_app
