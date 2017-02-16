@@ -25,4 +25,10 @@ RUN rm get-pip.py
 RUN pip3 install flask
 
 #deploy application
-COPY flask_app flask_app
+RUN mkdir flask_app
+COPY main.py flask_app/main.py
+
+ENV FLASK_APP flask_app/main.py
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+CMD [ "flask" , "run" , "--host=0.0.0.0" ]
