@@ -23,4 +23,4 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && python3.6 get-pip.py && rm get-
 RUN pip3 install flask
 
 #pull source from git repository
-RUN git clone https://github.com/sjh8543/ab-testing.git
+RUN git clone https://github.com/sjh8543/ab-testing.git && mv ab-testing/flask_app flask_app && rm -rf ab-testing

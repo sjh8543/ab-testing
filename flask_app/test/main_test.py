@@ -19,7 +19,12 @@ class FlaskrTestCase(unittest.TestCase):
          finalize step after whole tests are end
         """
         pass
-
+    
+    def routing_test(self):
+        """
+         function to test for routing url
+        """
+        pass
 
 if __name__ == '__main__' :
     unittest.main()
