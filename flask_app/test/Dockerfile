@@ -4,3 +4,6 @@ FROM flask-app:0.3
 
 RUN mkdir flask_app/test
 COPY main_test.py flask_app/test/main_test.py
+
+#add pythonpath for application source code import
+ENV PYTHONPATH=/home/runtime/flask_app
