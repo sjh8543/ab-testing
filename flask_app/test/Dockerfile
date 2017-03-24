@@ -1,6 +1,6 @@
 # Author : sjh8543@gmail.com
 # This images is made to test ab-testing engine. It can be rebuild later with another structure. 
-FROM flask-app:0.3
+FROM flask-app:lastest
 
 #install coverage test module
 RUN pip3 install coverage
