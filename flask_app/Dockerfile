@@ -8,27 +8,19 @@ RUN apt-get update && apt-get -y install \
     wget \
     vim \
     curl \
+    python3.6 \
  && rm -rf /var/lib/apt/lists/*
-
-#install python3.6
-RUN apt-get update && apt-get -y install python3.6 && rm -rf /var/lib/apt/lists/*
 
 #create working directory to manage applicaion
 WORKDIR /home/runtime
 
-#pip setting with get-pip.oy
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python3.6 get-pip.py
-RUN rm get-pip.py
-
-#install flask
-RUN pip3 install flask
+#pip setting with get-pip.oy then install flask using pip3
+RUN wget https://bootstrap.pypa.io/get-pip.py && python3.6 get-pip.py && rm get-pip.py && pip3 install flask
 
 #deploy application
 RUN mkdir flask_app
 COPY main.py flask_app/main.py
 
-ENV FLASK_APP flask_app/main.py
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
+ENV FLASK_APP flask_app/main.py && LC_ALL=C.UTF-8 && LANG=C.UTF-8
+
 CMD [ "flask" , "run" , "--host=0.0.0.0" ]
