@@ -4,7 +4,7 @@ FROM flask-app:latest
 
 #install coverage test module
 RUN pip3 install coverage
-
+RUN mkdir /var/log/flask
 #copy source file for testing into images 
 COPY main_test.py flask_app/test/main_test.py
 
