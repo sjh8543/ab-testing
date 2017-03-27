@@ -42,7 +42,7 @@ def routing():
 def shutdown():
     """
      API for gracefully shutdown flask application.
-     Flask application can be shut down when every requests requested to flask apllication are complete.
+     Flask application can be shut down when all requests requested to flask apllication are complete.
      It will help application rollout process. 
     """
     shutdown_server()
