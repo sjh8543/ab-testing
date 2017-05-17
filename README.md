@@ -1,1 +1,1 @@
-#It's repository for ab-testing engine. Currently this project is stopped by some reasons. ha.."
+#It's repository for ab-testing engine. Currently this project is stopped by some reasons. huha.."
